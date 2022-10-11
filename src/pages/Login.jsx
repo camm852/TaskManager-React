@@ -2,9 +2,10 @@ import React from 'react';
 import Alert from '../components/Alert';
 import Spinner from '../components/Spinner/Spinner';
 import useAuth from '../hooks/useAuth.jsx';
-import { pick } from 'lodash';
 import Cookies from 'universal-cookie';
 import clientAxios from '../config/clientAxios';
+import logo from "../TM.png"
+import { pick } from 'lodash';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
@@ -65,8 +66,9 @@ export default function Login() {
 					setSpinner(false);
 				}, 2000);
 			} catch (error) {
+				console.log(error)
 				setSpinner(false);
-				setAlert({ msg: msg, error: true });
+				setAlert({ msg: error.response.data.msg, error: true });
 			}
 		}
 	};
@@ -79,17 +81,15 @@ export default function Login() {
 	};
 	return (
 		<>
-			<h1 className='text-sky-600 font-black text-5xl text-center capitalize'>
-				Login <br />
-				<span className='text-slate-700 text-6xl block py-2'>Task Manager</span>
-			</h1>
-
-			<form className='my-10 px-10 py-5' onSubmit={handleSubmit}>
-				{error.blank ? (
-					<Alert error={true}>{error.blank}</Alert>
-				) : alert.msg ? (
-					<Alert error={alert.error}>{alert.msg}</Alert>
-				) : null}
+			<img src={logo} alt="logo" className='w-1/2 m-auto' />
+			<form className='my-8 px-10 py-3' onSubmit={handleSubmit}>
+				<div className='py-2'>
+					{error.blank ? (
+						<Alert error={true}>{error.blank}</Alert>
+					) : alert.msg ? (
+						<Alert error={alert.error}>{alert.msg}</Alert>
+					) : null}
+				</div>
 				<div>
 					<div className='text-sm font-bold text-gray-700 tracking-wide'>
 						Email Address

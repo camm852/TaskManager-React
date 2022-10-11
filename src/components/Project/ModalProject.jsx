@@ -74,7 +74,6 @@ export default function ModalProject() {
 										as='h3'
 										className='text-lg leading-6 font-bold text-gray-900'
 									>
-										New Project
 									</Dialog.Title>
 									<FormProject />
 								</div>

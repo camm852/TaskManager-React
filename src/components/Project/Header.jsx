@@ -6,11 +6,8 @@ export default function Header() {
 	const { logOut } = useAuth();
 
 	return (
-		<header className='px-4 py-3 bg-white border-b'>
-			<div className='md:flex md:justify-between'>
-				<h2 className='text-4xl text-sky-600 font-black text-center mb-5 md:mb-0'>
-					Task-Manager
-				</h2>
+		<header className='px-4 py-3'>
+			<div className='md:flex md:justify-end'>
 				<div className='flex flex-col  gap-3  md:flex-row '>
 					<div className='flex items-center gap-4 justify-center'>
 						<Link

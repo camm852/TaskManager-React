@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import ModalProject from './ModalProject';
+import logo from "../../TM.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { handleModalProject } from '../../redux/Slices/Project/ProjectSlice';
 
@@ -19,14 +20,18 @@ export default function Sidebar() {
 
 	return (
 		<aside className='md:w-1/3 lg:w-1/5 xl:w-1/6 px-5 py-6'>
-			<p className='text-xl font-bold'>Hello {auth.name.split(' ')[0]}</p>
-
+			<img src={logo} alt="" />
 			{!project || project.collaborator ? (
 				<button
-					className='bg-sky-600 hover:bg-sky-500 ease-in duration-150 w-full p-2 text-white uppercase font-bold block mt-5 text-center rounded-lg'
+					className='bg-sky-600 hover:bg-sky-500 ease-in duration-150 w-full p-2 text-white uppercase font-bold block mt-5 mx-3 text-center rounded-lg'
 					onClick={handleNewProject}
 				>
-					New Project
+					<div className='flex justify-center gap-3'>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+					 Project
+					</div>
 				</button>
 			) : (
 				<div>
